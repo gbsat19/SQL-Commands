@@ -1,0 +1,50 @@
+-- 1st Instance 
+create table author
+(
+    authorid number(2) primary key not null, 
+    firstname varchar(50) not null, 
+    lastname  varchar(50) not null, 
+    no_of_books number not null, 
+    country varchar(50)
+);
+
+desc author;
+
+insert into author values(34, 'Robert', 'Kiyosaki', 50, 'Japan');
+insert into author values(56, 'Aguro', 'Kazimi', 23, ' ');
+
+select* from author;
+
+
+
+
+--2nd Instance 
+create table Book
+(
+    bookid number(2) primary key not null, 
+    bookname varchar(50) not null, 
+    author varchar(40) not null, 
+    pages number 
+);
+
+insert into Book values(34, 'Rich Dad Poor Dad', 'Robert Kiyosaki', 345);
+insert into Book values(35, 'Courage to be disliked', 'Azimi Kuro', 345);
+
+insert into Book values(43, 'A man named Ove', ' ', 250);
+-- why did it accept author as null even though mentioned constraint
+
+select* from Book; 
+
+truncate table Book ; 
+select* from Book; 
+
+desc Book;
+
+alter table Book add printing_press varchar(100); 
+
+desc Book;
+
+drop table Book; 
+
+desc Book;
+--Object Book does not exist 

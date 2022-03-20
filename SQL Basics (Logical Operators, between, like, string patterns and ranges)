@@ -1,0 +1,93 @@
+create table laureates
+(
+    l_id number(2) primary key not null, 
+    l_name varchar(50) not null, 
+    publications number, 
+    awards number
+    --ERROR IN BINARY USAGE EXPLAIN
+    --nobel binary(1)
+);
+
+alter table laureates 
+add country varchar(50); 
+
+desc laureates; 
+
+insert into laureates values( 34, 'Rabindranath Tagore', 100, 20, 'India');
+insert into laureates values(23, 'Camillo Golgi', 50, 10, 'Italy');
+insert into laureates values(12, 'Ramon y Cajal', 80, 12, 'Spain');
+insert into laureats values(23, 'Galilio Galilie' 50, 15, 'Italy');
+insert into laureates values(45, 'Albert Einstein', 45, 25, 'Germany');
+insert into laureates values(28, 'Schrodinger', 48, 20, 'Germany');
+
+
+select* from laureates;
+
+--select l_name from laureates 
+where awards>=10 or publications<=50;
+
+select l_name from laureates 
+where awards between 10 and 20;
+
+--select l_name from laureates 
+where country = 'Germany' or country like 'I%';
+
+select l_name from laureates 
+where country in('Germany', 'India','Italy');
+
+
+
+--ORDER BY CLAUSE: Sorting Result Set
+    --order by columname ASC/DESC
+select* from laureates order by l_name ASC;
+select* from laureates order by l_id ASC;
+    --order by columnnumber ASC/DESC
+select* from laureates order by 5 ASC;
+
+select country, sum(publications) as Total_Publications 
+from laureates 
+group by country 
+order by country ASC;
+
+select country, sum(awards) as Total_Awards 
+from laureates 
+group by country 
+having sum(awards) between 10 and 15;
+
+select count(publications), count(awards) 
+from laureates 
+group by country;
+
+select country,count(publications), count(awards) 
+from laureates 
+group by country;
+
+select country,count(l_name) 
+from laureates 
+group by country;
+
+select country, count(publications) 
+from laureates 
+group by country;
+
+select country, sum(publications) 
+from laureates 
+group by country;
+
+select country, sum(publications) 
+from laureates 
+group by country 
+order by country ASC;
+
+select country, sum(publications) as Total_Publications 
+from laureates 
+group by country
+order by country ASC;
+
+select country, sum(awards) as Total_Awards 
+from laureates 
+group by country 
+having sum(awards) 
+between 10 and 15;
+
+

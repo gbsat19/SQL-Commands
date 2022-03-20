@@ -1,0 +1,101 @@
+!pip install ipython-sql
+
+--Week 1 Practise SQL 
+create table Book
+(
+    bookname varchar(50),
+    bookid int, 
+    bookauthor varchar(100)
+);
+
+desc Book;
+
+insert into Book values('Train to Pakistan', 23, 'Khushwant Singh');
+insert into Book values('Diary of Anne Frank', 3, 'Anne Frank');
+insert into Book values('Mein Kampf', 25, 'Adolf Hitler');
+insert into Book values('Years of Yes', 12, 'Shonda Rimes');
+
+select* from Book;
+
+select bookname,bookid from Book;
+
+select bookname,bookid from Book where bookid <> 23;
+
+select count(*) from Book;
+
+select count(bookname) from Book where bookid <>23;
+
+select distinct bookname from Book;
+
+--select bookname, bookid from Book limit 4;
+
+select count(distinct bookname) from Book where bookauthor= 'Khushwant Singh';
+
+select distinct bookid, bookname from Book;
+
+--select bookid, bookname from Book offset 3;
+
+--HOW TO ADD MULTIPLE ENTRIES Using Single Insert
+--insert into Book values('Courage to be disliked',2,'Kuro') ('Rich Dad Poor Dad', 3, 'Robert Kiosaki');
+
+update Book set bookname = 'Rich Dad Poor Dad', bookauthor= 'Robert Kiyosaki' where bookid = 23;
+
+select* from Book;
+
+update Book set bookname = 'Rich Dad Poor Dad', bookauthor = 'Robert Kiyosaki' where bookid =23;
+
+select* from Book;
+
+update Book set bookauthor = 'Azimi Kuro';
+
+select* from Book;
+
+delete from Book where bookid =23;
+select* from Book;
+
+update Book set bookauthor = 'Anne Frank' where bookid = 3;
+update Book set bookauthor = 'adolf Hitler' where bookid = 25;
+update Book set bookauthor = 'Shondha Rhime' where bookid = 12;
+select* from Book;
+
+update Book set bookauthor = 'Adolf Hitler' where bookid = 25; 
+select bookauthor from Book where bookid = 25; 
+
+insert into Book values('Rich Dad Poor Dad', 15, 'Robert Kiyosaki');
+insert into Book values('12 years a slave', 34, 'Lord Golu');
+select* from Book;
+
+delete from Book where bookid = 34 OR bookid = 15;
+
+select* from Book;
+select* from Book;
+
+update Book set bookname = 'Rich Dad Poor Dad', bookauthor = 'Robert Kiyosaki' where bookid =23;
+
+select* from Book;
+
+update Book set bookauthor = 'Azimi Kuro';
+
+select* from Book;
+
+delete from Book where bookid =23;
+select* from Book;
+
+update Book set bookauthor = 'Anne Frank' where bookid = 3;
+update Book set bookauthor = 'adolf Hitler' where bookid = 25;
+update Book set bookauthor = 'Shondha Rhime' where bookid = 12;
+select* from Book;
+
+update Book set bookauthor = 'Adolf Hitler' where bookid = 25; 
+select bookauthor from Book where bookid = 25; 
+
+insert into Book values('Rich Dad Poor Dad', 15, 'Robert Kiyosaki');
+insert into Book values('12 years a slave', 34, 'Lord Golu');
+select* from Book;
+
+delete from Book where bookid = 34 OR bookid = 15;
+
+select* from Book;
+
+--insert into Book values('Rich Dad Poor Dad', 15, 'Robert Kiyosaki'), ('12 years a slave', 34, 'Lord Golu');
+--select* from Book;
